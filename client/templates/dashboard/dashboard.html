@@ -1,0 +1,72 @@
+<template name="dashboard">
+	<h2 class="text-center">
+		Ideas to Gift
+	</h2>
+  <br>
+  {{ #if verifiedEmail }}
+	  <div class="col-md-6">
+			<h3 class="text-center">
+				Wishes
+			</h3>
+			<br> 	
+		  <div class="inline text-center hidden">
+		    <a class="btn btn-primary" href="{{ pathFor 'wishesAdd' }}">Add New Wish</a>
+		    <a class="btn-sort btn btn-default" href="#" id="h">H</a>
+		    <a class="btn-sort btn btn-default" href="#" id="m">M</a>
+		    <a class="btn-sort btn btn-default active" href="#" id="a">All</a>
+		  </div>
+			<br>
+			{{ #if any wishes }}
+				<div class="hidden alert alert-info alert-manual" role="alert">No wishes found. <span class="for-spouse hidden">Ask your spouse to add some.</span></div>
+				<table class="table table-hover table-bordered table-clickable table-wishes">
+					<tbody>
+						{{ #each wishes }}
+							<tr data-link="{{ pathFor 'wishesShow' }}" data-user="{{ userId }}">
+								<td>
+									{{ name }}
+									<div class="pull-right">
+										{{ #if isPrivateWish }}
+				              <span class="fa fa-times remove-item"></span>
+				            {{ /if }}
+									</div>
+								</td>
+							</tr>
+						{{ /each }}
+					</tbody>
+				</table>
+			{{ else }}
+		    <div class="alert alert-info" role="alert">No wishes found.</div>
+			{{ /if }}
+	  </div>
+	{{ /if }}
+  <div class="col-md-6 {{ verifiedClass verifiedEmail }}">
+		<h3 class="text-center">
+			Gifts
+		</h3>
+		<br>
+	  <div class="inline text-center">
+	    <a class="btn btn-primary" href="{{ pathFor 'giftsAdd' }}">Add New Gift</a>
+	  </div>
+	  <br>
+  	{{ #if any gifts }}
+			<table class="table table-hover table-bordered table-clickable">
+				<tbody>
+					{{ #each gifts }}
+						<tr data-link="{{ pathFor 'giftsShow' }}">
+							<td>
+								{{ name }}
+								<div class="pull-right">
+									{{ #if isPrivateGift }}
+			              <span class="fa fa-times remove-item"></span>
+			            {{ /if }}
+								</div>
+							</td>
+						</tr>
+					{{ /each }}
+				</tbody>
+			</table>
+		{{ else }}
+	    <div class="alert alert-info" role="alert">No gifts found.</div>
+		{{ /if }}
+  </div>
+</template>

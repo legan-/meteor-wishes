@@ -1,0 +1,27 @@
+<template name="wishesEdit">
+	<h2 class="text-center">
+		Edit {{ name }}
+	</h2>
+  <form class="edit-wish col-md-offset-3 col-md-6" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" class="form-control" value="{{ name }}">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <textarea name="description" class="form-control" rows="4">{{ description }}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Location</label>
+      <textarea name="location" class="form-control" rows="3">{{ location }}</textarea>
+    </div>
+
+    <div class="form-group text-center">
+      <br>
+      <a href="{{ pathFor 'wishesShow' }}" class="btn btn-default">Cancel</a>
+      <input type="submit" name="submit" class="btn btn-primary" value="Update">
+    </div>
+  </form>
+</template>

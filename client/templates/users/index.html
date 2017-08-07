@@ -1,0 +1,67 @@
+<template name="usersIndex">
+	<h2 class="text-center">
+		User Settings
+	</h2>
+	<br>
+	<p class="lead text-center">
+		<small>
+			Your email:
+		</small>
+		<strong>
+			{{ email }}
+		</strong>
+	</p>
+	<br>
+
+	{{ #if verifiedEmail }}
+		<p class="lead text-center">
+			<small>
+				Spouse's email:
+			</small>
+			<strong>
+				{{ verifiedEmail }}
+			</strong>
+		</p>
+
+	{{ else }}
+		{{ #if requestedEmail }}
+			<div class="text-center">
+				<p class="lead text-center">
+					<small>
+						You have request from
+					</small>
+					<strong>
+						{{ requestedEmail }}
+					</strong>
+				</p>
+				<br>
+				<a href="#" id="agree" class="btn btn-primary">Agree</a>
+				<a href="#" id="cancel" class="btn btn-default">Cancel</a>
+			</div>
+
+		{{ else }}
+			{{ #if pendingEmail }}
+				<div class="text-center">
+					<p class="lead">
+						<small>
+							Pending acception from
+						</small>
+						<strong>
+							{{ pendingEmail }}
+						</strong>
+					</p>
+					<br>
+					<a href="#" id="cancel" class="btn btn-default">Cancel</a>
+				</div>
+			{{ else }}
+				<div class="text-center">
+					<p class="lead">
+						Spouse's email doesn't set
+					</p>
+					<br>	
+			    <a class="btn btn-primary" href="{{ pathFor 'usersAddSpouse' }}">Connect with Spouse</a>
+				</div>
+			{{ /if }}
+		{{ /if }}
+	{{ /if }}
+</template>

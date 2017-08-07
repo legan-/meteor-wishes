@@ -1,0 +1,47 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+less@2.7.9
+accounts-password@1.3.6
+useraccounts:bootstrap
+alanning:roles
+zimme:iron-router-active
+cmather:handlebars-server@0.2.0
+dburles:collection-helpers
+reywood:publish-composite
+momentjs:moment
+underscorestring:underscore.string
+matb33:collection-hooks
+dburles:factory
+anti:fake
+cunneen:mailgun
+iron:router@1.0.0
+yasinuslu:blaze-meta
+aldeed:collection2
+aldeed:autoform
+useraccounts:iron-routing
+meteor-base@1.0.4
+mobile-experience@1.0.4
+mongo@1.1.17
+blaze-html-templates
+session@1.1.7
+jquery@1.11.10
+tracker@1.1.3
+logging@1.1.17
+reload@1.1.11
+random@1.0.10
+ejson@1.0.13
+spacebars
+check@1.2.5
+standard-minifier-css@1.3.4
+standard-minifier-js@2.0.0
+shell-server@0.2.3
+yagni:split-on-newlines
+juliancwirko:s-alert-stackslide
+peppelg:bootstrap-3-modal
+sewdn:masked-input
+yasinuslu:metrika
+reactive-dict
+themeteorchef:bert

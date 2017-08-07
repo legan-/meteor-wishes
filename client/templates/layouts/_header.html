@@ -1,0 +1,56 @@
+<template name="_header">
+  <header>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ pathFor 'dashboard' }}">{{ shortName }}</a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-nav">
+          {{ #if currentUser }}
+            <ul class="nav navbar-nav navbar-left">
+              <li class="{{ isActiveRoute regex='dashboard' }}">
+                <a href="{{ pathFor 'dashboard' }}">Dashboard</a>
+              </li>
+              {{ #if verifiedEmail }}
+                <li class="{{ isActiveRoute regex='wishesIndex|wishesAdd|wishesShow|wishesEdit' }}">
+                  <a href="{{ pathFor 'wishesIndex' }}">My wishes</a>
+                </li>
+                <li class="{{ isActiveRoute regex='giftsIndex|giftsAdd|giftsShow|giftsEdit' }}">
+                  <a href="{{ pathFor 'giftsIndex' }}">Gifts</a>
+                </li>
+              {{ /if }}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="{{ isActiveRoute regex='usersIndex|usersAddSpouse' }}">
+                <a href="{{ pathFor 'usersIndex' }}">
+                  {{ email }}
+                  {{ #if requestedEmail }}
+                    <span class="badge">1</span>
+                  {{ /if }}
+                </a>
+              </li>
+              <li>
+                <a href="#" data-action="logout">Sign Out</a>
+              </li>
+            </ul>
+          {{ else }}
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="{{ pathFor 'atSignIn' }}">Sign in</a>
+              </li>
+              <li>
+                <a href="{{ pathFor 'atSignUp' }}">Sign Up</a>
+              </li>
+            </ul>
+          {{ /if }}
+        </div>
+      </div>
+    </nav>
+  </header>
+</template>
